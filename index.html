@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0a2b62">
+  <meta name="description" content="PASTOR ABAYOMI BIBLE STORIES — a colourful Bible reading and learning app for children and families.">
+  <title>PASTOR ABAYOMI BIBLE STORIES</title>
+  <link rel="icon" href="favicon.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <button id="menuBtn" class="icon-btn" aria-label="Menu">☰</button>
+      <div class="brand-mini"><img src="assets/images/pastor_abayomi_logo.png" alt="PASTOR ABAYOMI BIBLE STORIES"><span>PASTOR ABAYOMI BIBLE STORIES</span></div>
+      <button id="themeBtn" class="icon-btn" aria-label="Toggle theme">◐</button>
+    </header>
+
+    <aside id="drawer" class="drawer" aria-hidden="true">
+      <div class="drawer-brand"><img src="assets/images/pastor_abayomi_logo.png" alt="PASTOR ABAYOMI BIBLE STORIES"><h2>PASTOR ABAYOMI BIBLE STORIES</h2><p>Read • Learn • Grow</p></div>
+      <nav>
+        <button data-view="home">⌂ Home</button>
+        <button data-view="books">📖 Bible Books</button>
+        <button data-view="search">🔎 Search</button>
+        <button data-view="bookmarks">🔖 Bookmarks</button>
+        <button data-view="notes">📝 Notes</button>
+        <button data-view="about">ℹ About</button>
+      </nav>
+    </aside>
+    <div id="scrim" class="scrim"></div>
+
+    <main>
+      <section id="home" class="view active">
+        <div class="welcome-world">
+          <span class="float-object obj-bible" aria-hidden="true">📖</span>
+          <span class="float-object obj-pencil" aria-hidden="true">✏️</span>
+          <span class="float-object obj-star" aria-hidden="true">⭐</span>
+          <span class="float-object obj-rainbow" aria-hidden="true">🌈</span>
+          <span class="float-object obj-dove" aria-hidden="true">🕊️</span>
+          <div class="welcome-copy">
+            <span class="welcome-kicker">✨ READ • DISCOVER • GROW ✨</span>
+            <h1>PASTOR ABAYOMI<br>BIBLE STORIES</h1>
+            <p class="welcome-message">Read God’s Word, discover Bible characters, save favourite verses and grow in faith through a colourful child-friendly experience.</p>
+            <div class="hero-actions big-actions">
+              <button class="primary start-reading" data-view="books"><span>📖</span><strong>START READING</strong></button>
+              <button class="secondary search-bible" data-view="search"><span>🔎</span><strong>SEARCH BIBLE</strong></button>
+            </div>
+          </div>
+          <div class="welcome-art">
+            <div class="sun-bubble">☀️</div>
+            <img class="hero-logo" src="assets/images/pastor_abayomi_logo.png" alt="PASTOR ABAYOMI BIBLE STORIES logo">
+            <div class="art-caption">God’s Word is an adventure!</div>
+          </div>
+          <div class="hill hill-one"></div><div class="hill hill-two"></div>
+        </div>
+        <div class="discover-title"><span>🌟</span><div><small>WHAT WOULD YOU LIKE TO DISCOVER TODAY?</small><h2>Choose your Bible adventure</h2></div><span>🌟</span></div>
+        <div class="kid-strip"><button data-view="books"><span>📖</span><b>Read Bible</b><small>Explore 66 books</small></button><button data-view="search"><span>🔎</span><b>Find a Verse</b><small>Search God’s Word</small></button><button data-view="bookmarks"><span>💛</span><b>My Favourites</b><small>Verses you love</small></button><button data-view="notes"><span>✏️</span><b>My Notes</b><small>Write what you learn</small></button><button data-view="books"><span>👑</span><b>Bible Heroes</b><small>Meet people of faith</small></button><button data-view="home"><span>🌈</span><b>God’s Promises</b><small>Read and grow</small></button></div><div class="cards">
+          <article><b>66</b><span>Books of the Bible</span></article>
+          <article><b>1,189</b><span>Chapters</span></article>
+          <article><b>🔖</b><span>Local Bookmarks</span></article>
+          <article><b>📝</b><span>Personal Notes</span></article>
+        </div>
+        <div class="panel daily"><h2>Daily Bible Reading</h2><p id="dailyVerse">Loading a verse…</p><small id="dailyRef"></small></div>
+      </section>
+
+      <section id="books" class="view"><div class="section-head"><div><span class="eyebrow">SCRIPTURE</span><h1>Bible Books</h1></div><input id="bookFilter" type="search" placeholder="Filter books…" autocomplete="off"></div><div id="booksGrid" class="books-grid"></div></section>
+
+      <section id="reader" class="view"><button id="backBooks" class="back">← Books</button><div class="reader-head"><div><span id="readerTestament" class="eyebrow"></span><h1 id="readerTitle"></h1></div><div class="reader-controls"><select id="versionSelect" aria-label="Bible version"><option value="kjv">KJV</option><option value="web">WEB</option><option value="asv">ASV</option><option value="geneva1599">Geneva 1599</option><option value="dra">Douay-Rheims</option></select><select id="chapterSelect" aria-label="Chapter"></select></div></div><div id="readerStatus" class="status"></div><div id="verses" class="verses"></div></section>
+
+      <section id="search" class="view"><div class="section-head"><div><span class="eyebrow">FIND SCRIPTURE</span><h1>Search Bible</h1></div></div><form id="searchForm" class="search-box"><input id="searchInput" type="search" placeholder="e.g. faith, love, Psalm 23" autocomplete="off"><button class="primary" type="submit">Search</button></form><div id="searchStatus" class="status">Enter a word or phrase. Search loads the KJV Bible books as needed and keeps them cached in your browser.</div><div id="searchResults" class="results"></div></section>
+
+      <section id="bookmarks" class="view"><div class="section-head"><div><span class="eyebrow">SAVED</span><h1>Bookmarks</h1></div></div><div id="bookmarkList" class="results"></div></section>
+      <section id="notes" class="view"><div class="section-head"><div><span class="eyebrow">PERSONAL</span><h1>Notes</h1></div></div><div id="noteList" class="results"></div></section>
+      <section id="about" class="view"><div class="about panel"><img src="assets/images/pastor_abayomi_logo.png" alt="PASTOR ABAYOMI BIBLE STORIES"><div><span class="eyebrow">ABOUT</span><h1>PASTOR ABAYOMI BIBLE STORIES</h1><p>A colourful Bible reading and learning experience designed to help children and families explore Scripture with confidence.</p><p>Includes KJV, World English Bible, American Standard Version, Geneva Bible 1599 and Douay-Rheims. Bookmarks, notes and preferences stay on the user’s own browser.</p></div></div></section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Main navigation"><button data-view="home">⌂<span>Home</span></button><button data-view="books">📖<span>Books</span></button><button data-view="search">⌕<span>Search</span></button><button data-view="bookmarks">🔖<span>Saved</span></button><button data-view="notes">📝<span>Notes</span></button></nav>
+  </div>
+  <script src="app.js" defer></script>
+</body>
+</html>
